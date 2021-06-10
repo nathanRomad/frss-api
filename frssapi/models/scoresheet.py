@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from .questions import Questions
+from .answers import Answers
 
 class ScoreSheet(models.Model):
-    answer = models.CharField(max_length=255)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    question_id = models.ForeignKey(Questions, on_delete=models.CASCADE)
+    answer_id = models.ForeignKey(Answers, on_delete=models.CASCADE)
