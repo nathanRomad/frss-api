@@ -37,11 +37,11 @@ class AnswerView(ViewSet):
             answer.save()
             
             scoresheet = ScoreSheet()
-            scoresheet.answer_id = answer.id
-            scoresheet.user = user
+            scoresheet.answer_id = answer
+            scoresheet.user_id = user
             scoresheet.save()
 
-            serializer = AnswerSerializer(answer, context={'request': request})
+            serializer = ScoreSheetSerializer(scoresheet, context={'request': request})
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         # If anything went wrong, catch the exception and
@@ -147,8 +147,20 @@ class AnswerSerializer(serializers.ModelSerializer):
     Arguments:
         serializer type
     """
-    user = UserSerializer(many=False)
     class Meta:
         model = Answers
-        fields = ('id', 'user', 'input_answer', 'select_answer', 'question_id')
+        fields = ('id', 'input_answer', 'select_answer', 'question_id')
+        depth = 1
+
+class ScoreSheetSerializer(serializers.ModelSerializer):
+    """JSON serializer for answers
+    Arguments:
+        serializer type
+    """
+    user_id = UserSerializer(many=False)
+    answer_id = AnswerSerializer(many=False)
+
+    class Meta:
+        model = User
+        fields = ('user_id', 'answer_id')
         depth = 1
