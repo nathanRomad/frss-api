@@ -4,7 +4,8 @@
         "pk": 1,
         "fields": {
             "text": "What is your employment status?",
-            "explanation": null
+            "explanation": null,
+            "type": "select"
         }
     },
     {
@@ -12,7 +13,8 @@
         "pk": 2,
         "fields": {
             "text": "Do you work in an office setting?",
-            "explanation": null
+            "explanation": null,
+            "type": "radio"
         }
     },
     {
@@ -20,7 +22,8 @@
         "pk": 3,
         "fields": {
             "text": "WHow secure is your job?",
-            "explanation": "Job Security: The probability that an individual will keep his/her job. A job with a high level of security is one in which the person with a job has skills which are in high demand by employers and a small chance of being unemployed. "
+            "explanation": "Job Security: The probability that an individual will keep his/her job. A job with a high level of security is one in which the person with a job has skills which are in high demand by employers and a small chance of being unemployed. ",
+            "type": "select"
         }
     },
     {
@@ -28,7 +31,8 @@
         "pk": 4,
         "fields": {
             "text": "What is your individual annual income?",
-            "explanation": "Include salary, bonus and other wages"
+            "explanation": "Include salary, bonus and other wages",
+            "type": "input"
         }
     },
     {
@@ -36,7 +40,8 @@
         "pk": 5,
         "fields": {
             "text": "How much annual income is provided by other sources?",
-            "explanation": "Include spousal income, social security, VA disability, military and non-military pensions, etc."
+            "explanation": "Include spousal income, social security, VA disability, military and non-military pensions, etc.",
+            "type": "input"
         }
     },
     {
@@ -44,7 +49,8 @@
         "pk": 6,
         "fields": {
             "text": "Do you own a house (or condo)?",
-            "explanation": null
+            "explanation": null,
+            "type": "radio"
         }
     },
     {
@@ -52,7 +58,8 @@
         "pk": 7,
         "fields": {
             "text": "Not including your home, retirement accounts and emergency fund, what is the estimated total value of your additional assets?",
-            "explanation": "Include savings accounts (excluding emergency funds), non-retirement investment accounts, vehicles, artwork, jewelry, etc."
+            "explanation": "Include savings accounts (excluding emergency funds), non-retirement investment accounts, vehicles, artwork, jewelry, etc.",
+            "type": "input"
         }
     },
     {
@@ -60,7 +67,8 @@
         "pk": 8,
         "fields": {
             "text": "If you combined all your debts, approximately how much would you owe?",
-            "explanation": "Include credit cards, student loans, personal loans, auto loans, mortgage and additional properties, etc. Do not include your credit card payment if you pay off your credit card monthly."
+            "explanation": "Include credit cards, student loans, personal loans, auto loans, mortgage and additional properties, etc. Do not include your credit card payment if you pay off your credit card monthly.",
+            "type": "input"
         }
     },
     {
@@ -68,7 +76,8 @@
         "pk": 9,
         "fields": {
             "text": "On average, how much do you pay towards those debts every month?",
-            "explanation": "Including credit cards, student loans, personal loans, auto loans, mortgage (including principle, interest, taxes and insurance), rent and additional properties, etc. Do not include your credit card payment if you pay off your credit card monthly."
+            "explanation": "Including credit cards, student loans, personal loans, auto loans, mortgage (including principle, interest, taxes and insurance), rent and additional properties, etc. Do not include your credit card payment if you pay off your credit card monthly.",
+            "type": "input"
         }
     },
     {
@@ -76,7 +85,8 @@
         "pk": 10,
         "fields": {
             "text": "On average, how much do you spend monthly on living expenses?",
-            "explanation": "Include your credit cards if you pay them off monthly, utilities, groceries, insurance, etc."
+            "explanation": "Include your credit cards if you pay them off monthly, utilities, groceries, insurance, etc.",
+            "type": "input"
         }
     },
     {
@@ -84,7 +94,8 @@
         "pk": 11,
         "fields": {
             "text": "Do you follow a plan to manage your monthly expenses?",
-            "explanation": "Example: A budget, spreadsheet, pen and paper, etc."
+            "explanation": "Example: A budget, spreadsheet, pen and paper, etc.",
+            "type": "radio"
         }
     },
     {
@@ -92,7 +103,8 @@
         "pk": 12,
         "fields": {
             "text": "Do you have renters insurance?",
-            "explanation": null
+            "explanation": null,
+            "type": "radio"
         }
     },
     {
@@ -100,7 +112,8 @@
         "pk": 13,
         "fields": {
             "text": "How many vehicles do you own or lease?",
-            "explanation": null
+            "explanation": null,
+            "type": "select"
         }
     },
     {
@@ -108,7 +121,8 @@
         "pk": 14,
         "fields": {
             "text": "What are your auto insurance liability coverage amounts?",
-            "explanation": "Auto liability insurance coverage helps cover the costs of someone else’s property and bodily injuries if you're found at fault in an accident. If you have liability insurance, your insurance provider will cover costs for the damaged property, minus your deductible, and up to your covered limit (example given 100,000 per person / 300,000 per accident)."
+            "explanation": "Auto liability insurance coverage helps cover the costs of someone else’s property and bodily injuries if you're found at fault in an accident. If you have liability insurance, your insurance provider will cover costs for the damaged property, minus your deductible, and up to your covered limit (example given 100,000 per person / 300,000 per accident).",
+            "type": "select"
         }
     },
     {
@@ -116,7 +130,8 @@
         "pk": 15,
         "fields": {
             "text": "Do you have health insurance?",
-            "explanation": "Example: Tricare, employer provided, etc."
+            "explanation": "Example: Tricare, employer provided, etc.",
+            "type": "radio"
         }
     },
     {
@@ -124,7 +139,8 @@
         "pk": 16,
         "fields": {
             "text": "Do you have life insurance?",
-            "explanation": null
+            "explanation": null,
+            "type": "radio"
         }
     },
     {
@@ -132,7 +148,8 @@
         "pk": 17,
         "fields": {
             "text": "Do you have disability insurance that covers at least 60% of your earnings before taxes?",
-            "explanation": null
+            "explanation": null,
+            "type": "radio"
         }
     },
     {
@@ -140,7 +157,8 @@
         "pk": 18,
         "fields": {
             "text": "Do you have a plan for your long-term care?",
-            "explanation": "A plan in the event you need help caring for yourself. It includes either: 1. A long-term care insurance policy. 2. An agreement with someone who will take care of you if needed and a way for that person to draw money from your financial resources to pay for the items you need."
+            "explanation": "A plan in the event you need help caring for yourself. It includes either: 1. A long-term care insurance policy. 2. An agreement with someone who will take care of you if needed and a way for that person to draw money from your financial resources to pay for the items you need.",
+            "type": "radio"
         }
     },
     {
@@ -148,7 +166,8 @@
         "pk": 19,
         "fields": {
             "text": "Do you have an up-to-date will?",
-            "explanation": "Explain: Guardianship and Will: Your will (sometimes called your last will and testament) is a document created while you are alive that outlines what to do with your possessions (such as savings, investments, real estate, personal property) upon your death. It also includes language on what will happen to other things for which you are responsible, such as custody of children or dependents."
+            "explanation": "Explain: Guardianship and Will: Your will (sometimes called your last will and testament) is a document created while you are alive that outlines what to do with your possessions (such as savings, investments, real estate, personal property) upon your death. It also includes language on what will happen to other things for which you are responsible, such as custody of children or dependents.",
+            "type": "radio"
         }
     },
     {
@@ -156,7 +175,8 @@
         "pk": 20,
         "fields": {
             "text": "Do you have a legal document in place appointing someone to take care of your medical decisions?",
-            "explanation": "Explain: Health Care Directive: Includes a living will or a medical durable power of attorney. 1. A living will is a document that clearly states your wishes about the extent of health care actions that should be taken to save your life if you're unable to make medical decisions for yourself. 2. A medical durable power of attorney, sometimes called a health care proxy, lets you designate someone to make medical decisions on your behalf if you are unable to make them for yourself."
+            "explanation": "Explain: Health Care Directive: Includes a living will or a medical durable power of attorney. 1. A living will is a document that clearly states your wishes about the extent of health care actions that should be taken to save your life if you're unable to make medical decisions for yourself. 2. A medical durable power of attorney, sometimes called a health care proxy, lets you designate someone to make medical decisions on your behalf if you are unable to make them for yourself.",
+            "type": "radio"
         }
     },
     {
@@ -164,7 +184,8 @@
         "pk": 21,
         "fields": {
             "text": "Do you have a legal document in place appointing someone to take care of your financial matters should the need arise?",
-            "explanation": "Explain: Power of Attorney: There are several types of power of attorney, depending on your wishes and needs, such as: 1. Durable power of attorney which allows someone else to make financial decisions on your behalf, even if you become incapacitated or unable to handle matters on your own. 2. Springing power of attorney which allows someone else to make financial decisions on your behalf, only under certain conditions that you specify."
+            "explanation": "Explain: Power of Attorney: There are several types of power of attorney, depending on your wishes and needs, such as: 1. Durable power of attorney which allows someone else to make financial decisions on your behalf, even if you become incapacitated or unable to handle matters on your own. 2. Springing power of attorney which allows someone else to make financial decisions on your behalf, only under certain conditions that you specify.",
+            "type": "radio"
         }
     },
     {
@@ -172,7 +193,8 @@
         "pk": 22,
         "fields": {
             "text": "What is your planned retirement age?",
-            "explanation": "Explain: Planned Retirement Age: This is the age that you decide to quit working and begin living off your retirement income and investments. We have defaulted this age, but you may change it to fit your calculations."
+            "explanation": "Explain: Planned Retirement Age: This is the age that you decide to quit working and begin living off your retirement income and investments. We have defaulted this age, but you may change it to fit your calculations.",
+            "type": "input"
         }
     },
     {
@@ -180,7 +202,8 @@
         "pk": 23,
         "fields": {
             "text": "What is your life expectancy?",
-            "explanation": "Explain: Life Expectancy: The age to which an average person can be expected to live according to IRS mortality tables."
+            "explanation": "Explain: Life Expectancy: The age to which an average person can be expected to live according to IRS mortality tables.",
+            "type": "input"
         }
     },
     {
@@ -188,7 +211,8 @@
         "pk": 24,
         "fields": {
             "text": "How much do you save monthly toward your retirement?",
-            "explanation": "Explain: Retirement Savings Contributions: Include contributions into tax-advantaged federal retirement programs, such as IRAs, Roth IRAs, 401(k)s, 403(b)s and TSPs. Also include other contributions into any accounts you plan to liquidate in retirement."
+            "explanation": "Explain: Retirement Savings Contributions: Include contributions into tax-advantaged federal retirement programs, such as IRAs, Roth IRAs, 401(k)s, 403(b)s and TSPs. Also include other contributions into any accounts you plan to liquidate in retirement.",
+            "type": "input"
         }
     },
     {
@@ -196,7 +220,8 @@
         "pk": 25,
         "fields": {
             "text": "How much do you currently have saved for your retirement?",
-            "explanation": "Explain: Retirement Savings: Include all savings and investments that have been set aside for your retirement such as 401(k)s, 403(b)s, TSPs, IRAs, certificates of deposit, mutual funds, stock positions, individual bonds and others."
+            "explanation": "Explain: Retirement Savings: Include all savings and investments that have been set aside for your retirement such as 401(k)s, 403(b)s, TSPs, IRAs, certificates of deposit, mutual funds, stock positions, individual bonds and others.",
+            "type": "input"
         }
     },
     {
@@ -204,7 +229,8 @@
         "pk": 26,
         "fields": {
             "text": "What is your expected annual income in retirement?",
-            "explanation": "Example: social security, military or employer pension"
+            "explanation": "Example: social security, military or employer pension",
+            "type": "input"
         }
     },
     {
@@ -212,7 +238,8 @@
         "pk": 27,
         "fields": {
             "text": "How would you describe your investment style?",
-            "explanation": "Explain: Investment Style: 1:Conservative - Income is a top priority and low volatility is important. 2:Moderate - Growth and income are priorities and moderate volatility is acceptable. 3:Aggressive - Growth is extremely important and high volatility is tolerable."
+            "explanation": "Explain: Investment Style: 1:Conservative - Income is a top priority and low volatility is important. 2:Moderate - Growth and income are priorities and moderate volatility is acceptable. 3:Aggressive - Growth is extremely important and high volatility is tolerable.",
+            "type": "select"
         }
     },
     {
@@ -220,7 +247,8 @@
         "pk": 28,
         "fields": {
             "text": "How much have you saved towards your Emergency fund?",
-            "explanation": "Explain: Emergency Fund: A savings account or other easily accessible account where you have 3 to 6 months (3 - single / 6 - married) of living expenses saved. Living expenses include your: mortgage/rent payment plus any other expenses incurred on a monthly basis (utilities, groceries, insurance, etc.)"
+            "explanation": "Explain: Emergency Fund: A savings account or other easily accessible account where you have 3 to 6 months (3 - single / 6 - married) of living expenses saved. Living expenses include your: mortgage/rent payment plus any other expenses incurred on a monthly basis (utilities, groceries, insurance, etc.)",
+            "type": "input"
         }
     },
     {
@@ -228,7 +256,8 @@
         "pk": 29,
         "fields": {
             "text": "How many individuals (including yourself) will be dependent on you to pay for their education expenses?",
-            "explanation": "Do you have personal loans and/or are you co-signer(responsible) for someone elses student loans?"
+            "explanation": "Do you have personal loans and/or are you co-signer(responsible) for someone elses student loans?",
+            "type": "select"
         }
     }
 ]

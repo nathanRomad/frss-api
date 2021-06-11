@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
 from django.contrib.auth.models import User
-from frssapi.models import Answers, Questions, ScoreSheet
+from frssapi.models import Answers, Questions
 
 class AnswerView(ViewSet):
     """Level up answers"""
@@ -36,12 +36,12 @@ class AnswerView(ViewSet):
         try:
             answer.save()
             
-            scoresheet = ScoreSheet()
-            scoresheet.answer_id = answer
-            scoresheet.user_id = user
-            scoresheet.save()
+            # scoresheet = ScoreSheet()
+            # scoresheet.answer_id = answer
+            # scoresheet.user_id = user
+            # scoresheet.save()
 
-            serializer = ScoreSheetSerializer(scoresheet, context={'request': request})
+            # serializer = ScoreSheetSerializer(scoresheet, context={'request': request})
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         # If anything went wrong, catch the exception and
