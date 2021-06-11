@@ -50,7 +50,8 @@ class questionSerializer(serializers.ModelSerializer):
     Arguments:
         serializer type
     """
+
     class Meta:
         model = Questions
-        fields = ('id', 'text', 'explanation')
+        fields = ('id', 'text', 'explanation', 'answers_set')
         depth = 1
