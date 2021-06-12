@@ -21,7 +21,7 @@
         "model": "frssapi.questions",
         "pk": 3,
         "fields": {
-            "text": "WHow secure is your job?",
+            "text": "How secure is your job?",
             "explanation": "Job Security: The probability that an individual will keep his/her job. A job with a high level of security is one in which the person with a job has skills which are in high demand by employers and a small chance of being unemployed. ",
             "type": "select"
         }
