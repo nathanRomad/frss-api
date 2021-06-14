@@ -1,0 +1,2 @@
+DELETE
+FROM frssapi_answers

@@ -8,3 +8,6 @@ class Answers(models.Model):
     option_id = models.ForeignKey(Options, null=True, on_delete=models.CASCADE)
     question_id = models.ForeignKey(Questions, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    class Meta:
+        unique_together = ("question_id", "user_id")
