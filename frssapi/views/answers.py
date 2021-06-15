@@ -10,7 +10,6 @@ from rest_framework import status
 from django.contrib.auth.models import User
 from frssapi.models import Answers, Questions, Options
 
-
 class AnswerView(ViewSet):
     """Level up answers"""
 
@@ -23,10 +22,6 @@ class AnswerView(ViewSet):
         # Uses the token passed in the `Authorization` header
         # Get the user who is logged in as the userId on Answers
         user = request.auth.user
-        answer = Answers.objects.get(user=request.auth.user)
-        if answer is not None:
-            return Response({"reason": "You have already completed the form."}, status=status.HTTP_400_BAD_REQUEST)
-
         answerList = []
         if len(request.data) == 29:
             # Create a new Python instance of the Answer class
@@ -55,16 +50,10 @@ class AnswerView(ViewSet):
 
     def retrieve(self, request, pk):
         """Handle GET requests for single answer
-
         Returns:
             Response -- JSON serialized answer instance
         """
         try:
-            # `pk` is a parameter to this function, and
-            # Django parses it from the URL route parameter
-            #   http://localhost:8000/answers/2
-            #
-            # The `2` at the end of the route becomes `pk`
             answer = Answers.objects.get(pk=pk)
             serializer = AnswerSerializer(answer, context={'request': request})
             return Response(serializer.data)
@@ -79,11 +68,7 @@ class AnswerView(ViewSet):
             Response -- Empty body with 204 status code
         """
         answer = Answers.objects.get(user=request.auth.user)
-
         user = request.auth.user
-        answer = Answers.objects.get(user=request.auth.user)
-        if answer is not None:
-            return Response({"reason": "You have already completed the form."}, status=status.HTTP_400_BAD_REQUEST)
 
         answerList = []
         if len(request.data) == 29:
@@ -91,14 +76,11 @@ class AnswerView(ViewSet):
             # and set its properties from what was sent in the
             # body of the request from the client.
             for answers in request.data:
-                console.log('answers: ', answers);
                 answer = Answers.objects.get(pk=answers["id"])
                 answer.input_answer = answers["input_answer"]
                 if answers["option_id"] is not None:
-                    answer.option_id = Options.objects.get(
-                        pk=answers["option_id"])
-                answer.question_id = Questions.objects.get(
-                    pk=answers["question_id"])
+                    answer.option_id = Options.objects.get(pk=answers["option_id"])
+                answer.question_id = Questions.objects.get(pk=answers["question_id"])
                 answer.user_id = user
                 # answer.save()
                 answerList.append(answer)
