@@ -10,6 +10,7 @@ from rest_framework import status
 from django.contrib.auth.models import User
 from frssapi.models import Answers, Questions, Options
 
+
 class AnswerView(ViewSet):
     """Level up answers"""
 
@@ -28,22 +29,23 @@ class AnswerView(ViewSet):
 
         answerList = []
         if len(request.data) == 29:
-        # Create a new Python instance of the Answer class
-        # and set its properties from what was sent in the
-        # body of the request from the client.
+            # Create a new Python instance of the Answer class
+            # and set its properties from what was sent in the
+            # body of the request from the client.
             for answers in request.data:
-                    answer = Answers()
-                    answer.input_answer = answers["input_answer"]
-                    if answers["option_id"] is not None:
-                        answer.option_id = Options.objects.get(pk=answers["option_id"])
-                    answer.question_id = Questions.objects.get(pk=answers["question_id"])
-                    answer.user_id = user
-                    # answer.save()
-                    answerList.append(answer)
+                answer = Answers()
+                answer.input_answer = answers["input_answer"]
+                if answers["option_id"] is not None:
+                    answer.option_id = Options.objects.get(
+                        pk=answers["option_id"])
+                answer.question_id = Questions.objects.get(
+                    pk=answers["question_id"])
+                answer.user_id = user
+                # answer.save()
+                answerList.append(answer)
             user.answers_set.set(answerList, bulk=False)
             serializer = AnswerSerializer(user.answers_set, many=True)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-
 
         # If anything went wrong, catch the exception and
         # send a response with a 400 status code to tell the
@@ -78,20 +80,31 @@ class AnswerView(ViewSet):
         """
         answer = Answers.objects.get(user=request.auth.user)
 
-        # Do mostly the same thing as POST, but instead of
-        # creating a new instance of Answer, get the answer record
-        # from the database whose primary key is `pk`
-        answer = Answers.objects.get(pk=pk)
+        user = request.auth.user
+        answer = Answers.objects.get(user=request.auth.user)
+        if answer is not None:
+            return Response({"reason": "You have already completed the form."}, status=status.HTTP_400_BAD_REQUEST)
 
-        answer.input_answer = request.data["input_answer"]
-        answer.select_answer = request.data["select_answer"]
-        answer.question_id = request.data["question_id"]
-
-        answer.save()
-
-        # 204 status code means everything worked but the
-        # server is not sending back any data in the response
-        return Response({}, status=status.HTTP_204_NO_CONTENT)
+        answerList = []
+        if len(request.data) == 29:
+            # Create a new Python instance of the Answer class
+            # and set its properties from what was sent in the
+            # body of the request from the client.
+            for answers in request.data:
+                console.log('answers: ', answers);
+                answer = Answers.objects.get(pk=answers["id"])
+                answer.input_answer = answers["input_answer"]
+                if answers["option_id"] is not None:
+                    answer.option_id = Options.objects.get(
+                        pk=answers["option_id"])
+                answer.question_id = Questions.objects.get(
+                    pk=answers["question_id"])
+                answer.user_id = user
+                # answer.save()
+                answerList.append(answer)
+            user.answers_set.set(answerList, bulk=False)
+            serializer = AnswerSerializer(user.answers_set, many=True)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def destroy(self, request, pk):
         """Handle DELETE requests for a single answer
