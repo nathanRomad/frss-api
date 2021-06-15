@@ -22,6 +22,10 @@ class AnswerView(ViewSet):
         # Uses the token passed in the `Authorization` header
         # Get the user who is logged in as the userId on Answers
         user = request.auth.user
+        answer = Answers.objects.get(user=request.auth.user)
+        if answer is not None:
+            return Response({"reason": "You have already completed the form."}, status=status.HTTP_400_BAD_REQUEST)
+
         answerList = []
         if len(request.data) == 29:
         # Create a new Python instance of the Answer class
@@ -39,7 +43,7 @@ class AnswerView(ViewSet):
             user.answers_set.set(answerList, bulk=False)
             serializer = AnswerSerializer(user.answers_set, many=True)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST) 
+
 
         # If anything went wrong, catch the exception and
         # send a response with a 400 status code to tell the
