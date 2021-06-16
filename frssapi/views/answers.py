@@ -67,8 +67,9 @@ class AnswerView(ViewSet):
         Returns:
             Response -- Empty body with 204 status code
         """
-        answer = Answers.objects.get(user=request.auth.user)
+
         user = request.auth.user
+        # answer = Answers.objects.get(user_id=request.auth.user)
 
         answerList = []
         if len(request.data) == 29:
@@ -78,7 +79,7 @@ class AnswerView(ViewSet):
             for answers in request.data:
                 answer = Answers.objects.get(pk=answers["id"])
                 answer.input_answer = answers["input_answer"]
-                if answers["option_id"] is not None:
+                if answers.get("option_id", None) is not None:
                     answer.option_id = Options.objects.get(pk=answers["option_id"])
                 answer.question_id = Questions.objects.get(pk=answers["question_id"])
                 answer.user_id = user
