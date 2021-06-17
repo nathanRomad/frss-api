@@ -31,11 +31,11 @@ class AnswerView(ViewSet):
                 answer = Answers()
                 answer.input_answer = answers["input_answer"]
                 if answers["option_id"] is not None:
-                    answer.option_id = Options.objects.get(
+                    answer.option = Options.objects.get(
                         pk=answers["option_id"])
-                answer.question_id = Questions.objects.get(
+                answer.question = Questions.objects.get(
                     pk=answers["question_id"])
-                answer.user_id = user
+                answer.user = user
                 # answer.save()
                 answerList.append(answer)
             user.answers_set.set(answerList, bulk=False)
@@ -80,9 +80,9 @@ class AnswerView(ViewSet):
                 answer = Answers.objects.get(pk=answers["id"])
                 answer.input_answer = answers["input_answer"]
                 if answers.get("option_id", None) is not None:
-                    answer.option_id = Options.objects.get(pk=answers["option_id"])
-                answer.question_id = Questions.objects.get(pk=answers["question_id"])
-                answer.user_id = user
+                    answer.option = Options.objects.get(pk=answers["option_id"])
+                answer.question = Questions.objects.get(pk=answers["question_id"])
+                answer.user = user
                 # answer.save()
                 answerList.append(answer)
             user.answers_set.set(answerList, bulk=False)
@@ -137,19 +137,18 @@ class AnswerSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Answers
-        fields = ('id', 'input_answer', 'option_id', 'question_id')
+        fields = ('id', 'input_answer', 'option', 'question')
         depth = 1
 
+# class ScoreSheetSerializer(serializers.ModelSerializer):
+#     """JSON serializer for answers
+#     Arguments:
+#         serializer type
+#     """
+#     user_id = UserSerializer(many=False)
+#     answer_id = AnswerSerializer(many=False)
 
-class ScoreSheetSerializer(serializers.ModelSerializer):
-    """JSON serializer for answers
-    Arguments:
-        serializer type
-    """
-    user_id = UserSerializer(many=False)
-    answer_id = AnswerSerializer(many=False)
-
-    class Meta:
-        model = User
-        fields = ('user_id', 'answer_id')
-        depth = 1
+#     class Meta:
+#         model = User
+#         fields = ('user_id', 'answer_id')
+#         depth = 1
