@@ -3,384 +3,451 @@
         "model": "frssapi.options",
         "pk": 1,
         "fields": {
-            "question_id": 1,
-            "text": "Employed"
+            "question": 1,
+            "text": "Employed",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 2,
         "fields": {
-            "question_id": 1,
-            "text": "Unemployed"
+            "question": 1,
+            "text": "Unemployed",
+            "point_value": 0
         }
     },
     {
         "model": "frssapi.options",
         "pk": 3,
         "fields": {
-            "question_id": 1,
-            "text": "Active Military"
+            "question": 1,
+            "text": "Active Military",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 4,
         "fields": {
-            "question_id": 1,
-            "text": "Retired"
+            "question": 1,
+            "text": "Retired",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 5,
         "fields": {
-            "question_id": 2,
-            "text": "Yes"
+            "question": 2,
+            "text": "Yes",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 6,
         "fields": {
-            "question_id": 2,
-            "text": "No"
+            "question": 2,
+            "text": "No",
+            "point_value": 0.5
         }
     },
     {
         "model": "frssapi.options",
         "pk": 7,
         "fields": {
-            "question_id": 3,
-            "text": "Secure"
+            "question": 3,
+            "text": "Secure",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 8,
         "fields": {
-            "question_id": 3,
-            "text": "Somewhat Secure"
+            "question": 3,
+            "text": "Somewhat Secure",
+            "point_value": 0.5
         }
     },
     {
         "model": "frssapi.options",
         "pk": 9,
         "fields": {
-            "question_id": 3,
-            "text": "Not Secure"
+            "question": 3,
+            "text": "Not Secure",
+            "point_value": 0
         }
     },
     {
         "model": "frssapi.options",
         "pk": 10,
         "fields": {
-            "question_id": 6,
-            "text": "Yes"
+            "question": 6,
+            "text": "Yes",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 11,
         "fields": {
-            "question_id": 6,
-            "text": "No"
+            "question": 6,
+            "text": "No",
+            "point_value": 0
         }
     },
     {
         "model": "frssapi.options",
         "pk": 12,
         "fields": {
-            "question_id": 11,
-            "text": "Yes"
+            "question": 11,
+            "text": "Yes",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 13,
         "fields": {
-            "question_id": 11,
-            "text": "No"
+            "question": 11,
+            "text": "No",
+            "point_value": 0
         }
     },
     {
         "model": "frssapi.options",
         "pk": 14,
         "fields": {
-            "question_id": 12,
-            "text": "Yes"
+            "question": 12,
+            "text": "Yes",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 15,
         "fields": {
-            "question_id": 12,
-            "text": "No"
+            "question": 12,
+            "text": "No",
+            "point_value": 0
+        }
+    },
+    {
+        "model": "frssapi.options",
+        "pk": 50,
+        "fields": {
+            "question": 13,
+            "text": "0",
+            "point_value": 0
         }
     },
     {
         "model": "frssapi.options",
         "pk": 16,
         "fields": {
-            "question_id": 13,
-            "text": "1"
+            "question": 13,
+            "text": "1",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 17,
         "fields": {
-            "question_id": 13,
-            "text": "2"
+            "question": 13,
+            "text": "2",
+            "point_value": 1
         }
     },{
         "model": "frssapi.options",
         "pk": 18,
         "fields": {
-            "question_id": 13,
-            "text": "3+"
+            "question": 13,
+            "text": "3+",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 19,
         "fields": {
-            "question_id": 14,
-            "text": "25,000 / 50,000"
+            "question": 14,
+            "text": "25,000 / 50,000",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 20,
         "fields": {
-            "question_id": 14,
-            "text": "50,000 / 100,000"
+            "question": 14,
+            "text": "50,000 / 100,000",
+            "point_value": 2
         }
     },
     {
         "model": "frssapi.options",
         "pk": 21,
         "fields": {
-            "question_id": 14,
-            "text": "100,000 / 300,000"
+            "question": 14,
+            "text": "100,000 / 300,000",
+            "point_value": 3
         }
     },
     {
         "model": "frssapi.options",
         "pk": 22,
         "fields": {
-            "question_id": 14,
-            "text": "300,000 / 500,000"
+            "question": 14,
+            "text": "300,000 / 500,000",
+            "point_value": 4
         }
     },
     {
         "model": "frssapi.options",
         "pk": 23,
         "fields": {
-            "question_id": 14,
-            "text": "500,000 / 1,000,000"
+            "question": 14,
+            "text": "500,000 / 1,000,000",
+            "point_value": 5
         }
     },
     {
         "model": "frssapi.options",
         "pk": 24,
         "fields": {
-            "question_id": 14,
-            "text": "Unknown"
+            "question": 14,
+            "text": "Unknown",
+            "point_value": 0.5
         }
     },
     {
         "model": "frssapi.options",
         "pk": 25,
         "fields": {
-            "question_id": 14,
-            "text": "No Coverage"
+            "question": 14,
+            "text": "No Coverage",
+            "point_value": 0
         }
     },
     {
         "model": "frssapi.options",
         "pk": 26,
         "fields": {
-            "question_id": 15,
-            "text": "Yes"
+            "question": 15,
+            "text": "Yes",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 27,
         "fields": {
-            "question_id": 15,
-            "text": "No"
+            "question": 15,
+            "text": "No",
+            "point_value": 0
         }
     },
     {
         "model": "frssapi.options",
         "pk": 28,
         "fields": {
-            "question_id": 16,
-            "text": "Yes"
+            "question": 16,
+            "text": "Yes",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 29,
         "fields": {
-            "question_id": 16,
-            "text": "No"
+            "question": 16,
+            "text": "No",
+            "point_value": 0
         }
     },{
         "model": "frssapi.options",
         "pk": 30,
         "fields": {
-            "question_id": 17,
-            "text": "Yes"
+            "question": 17,
+            "text": "Yes",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 31,
         "fields": {
-            "question_id": 17,
-            "text": "No"
+            "question": 17,
+            "text": "No",
+            "point_value": 0
         }
     },{
         "model": "frssapi.options",
         "pk": 32,
         "fields": {
-            "question_id": 18,
-            "text": "Yes"
+            "question": 18,
+            "text": "Yes",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 33,
         "fields": {
-            "question_id": 18,
-            "text": "No"
+            "question": 18,
+            "text": "No",
+            "point_value": 0
         }
     },{
         "model": "frssapi.options",
         "pk": 34,
         "fields": {
-            "question_id": 19,
-            "text": "Yes"
+            "question": 19,
+            "text": "Yes",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 35,
         "fields": {
-            "question_id": 19,
-            "text": "No"
+            "question": 19,
+            "text": "No",
+            "point_value": 0
         }
     },
     {
         "model": "frssapi.options",
         "pk": 36,
         "fields": {
-            "question_id": 20,
-            "text": "Yes"
+            "question": 20,
+            "text": "Yes",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 37,
         "fields": {
-            "question_id": 20,
-            "text": "No"
+            "question": 20,
+            "text": "No",
+            "point_value": 0
         }
     },{
         "model": "frssapi.options",
         "pk": 38,
         "fields": {
-            "question_id": 21,
-            "text": "Yes"
+            "question": 21,
+            "text": "Yes",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 39,
         "fields": {
-            "question_id": 21,
-            "text": "No"
+            "question": 21,
+            "text": "No",
+            "point_value": 0
         }
     },
     {
         "model": "frssapi.options",
         "pk": 40,
         "fields": {
-            "question_id": 27,
-            "text": "Preservation of Capital"
+            "question": 27,
+            "text": "Preservation of Capital",
+            "point_value": 1
         }
     },
     {
         "model": "frssapi.options",
         "pk": 41,
         "fields": {
-            "question_id": 27,
-            "text": "Conservative"
+            "question": 27,
+            "text": "Conservative",
+            "point_value": 2
         }
     },
     {
         "model": "frssapi.options",
         "pk": 42,
         "fields": {
-            "question_id": 27,
-            "text": "Moderately Conservative"
+            "question": 27,
+            "text": "Moderately Conservative",
+            "point_value": 3
         }
     },
     {
         "model": "frssapi.options",
         "pk": 43,
         "fields": {
-            "question_id": 27,
-            "text": "Moderate"
+            "question": 27,
+            "text": "Moderate",
+            "point_value": 4
         }
     },{
         "model": "frssapi.options",
         "pk": 44,
         "fields": {
-            "question_id": 27,
-            "text": "Moderately Aggressive"
+            "question": 27,
+            "text": "Moderately Aggressive",
+            "point_value": 3
         }
     },
     {
         "model": "frssapi.options",
         "pk": 45,
         "fields": {
-            "question_id": 27,
-            "text": "Aggressive"
+            "question": 27,
+            "text": "Aggressive",
+            "point_value": 2
         }
     },{
         "model": "frssapi.options",
         "pk": 46,
         "fields": {
-            "question_id": 27,
-            "text": "Very Aggressive"
+            "question": 27,
+            "text": "Very Aggressive",
+            "point_value": 1
+        }
+    },
+    {
+        "model": "frssapi.options",
+        "pk": 51,
+        "fields": {
+            "question": 29,
+            "text": "0",
+            "point_value": 3
         }
     },
     {
         "model": "frssapi.options",
         "pk": 47,
         "fields": {
-            "question_id": 29,
-            "text": "1"
+            "question": 29,
+            "text": "1",
+            "point_value": 2
         }
     },
     {
         "model": "frssapi.options",
         "pk": 48,
         "fields": {
-            "question_id": 29,
-            "text": "2"
+            "question": 29,
+            "text": "2",
+            "point_value": 1
         }
     },{
         "model": "frssapi.options",
         "pk":49,
         "fields": {
-            "question_id": 29,
-            "text": "3+"
+            "question": 29,
+            "text": "3+",
+            "point_value": 0.5
         }
     }
 ]

@@ -6,9 +6,9 @@ from .options import Options
 
 class Answers(models.Model):
     input_answer = models.IntegerField(null=True)
-    option_id = models.ForeignKey(Options, null=True, on_delete=models.CASCADE)
-    question_id = models.ForeignKey(Questions, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    option = models.ForeignKey(Options, null=True, on_delete=models.CASCADE)
+    question = models.ForeignKey(Questions, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = ("question_id", "user_id")
+        unique_together = ("question", "user")
