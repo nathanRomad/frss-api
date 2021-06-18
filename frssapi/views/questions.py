@@ -8,7 +8,6 @@ from rest_framework import serializers
 from rest_framework import status
 from frssapi.models import Questions
 
-
 class QuestionView(ViewSet):
     """Level up questions"""
 
