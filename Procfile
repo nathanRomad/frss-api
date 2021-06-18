@@ -1,0 +1,1 @@
+web: gunicorn frss.wsgi --log-file -
