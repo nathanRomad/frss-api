@@ -70,9 +70,9 @@ class AnswerView(ViewSet):
 
         user = request.auth.user
         # answer = Answers.objects.get(user_id=request.auth.user)
-
         answerList = []
-        if len(request.data) == 29:
+        
+        if len(request.data) == len(Questions.objects.all()):
             # Create a new Python instance of the Answer class
             # and set its properties from what was sent in the
             # body of the request from the client.

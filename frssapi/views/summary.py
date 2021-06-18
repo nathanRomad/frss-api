@@ -1,7 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 
-
 class SummaryView(ViewSet):
 
     def list(self, request):
@@ -45,6 +44,12 @@ class SummaryView(ViewSet):
         healthCareDirective = user.answers_set.get(question__id=20).option.text
         powerOfAttorney = user.answers_set.get(question__id=21).option.text
 
+        # Retirement
+        # Retirement Savings
+        retirementSavings = user.answers_set.get(question__id=25).input_answer
+        # RetirementContributions
+        monthlyRetirementContributions = user.answers_set.get(question__id=24).input_answer
+
         # Financial Readiness Score
         # Option Answer Scoring
         optionScore = 0
@@ -80,6 +85,10 @@ class SummaryView(ViewSet):
                 "will": will,
                 "healthCareDirective": healthCareDirective,
                 "powerOfAttorney": powerOfAttorney
+            },
+            "retirement": {
+                "retirementSavings": retirementSavings,
+                "monthlyRetirementContributions": monthlyRetirementContributions
             },
             "score": {
                 "averageInputAnswer": averageInputAnswer,
