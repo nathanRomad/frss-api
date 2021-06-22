@@ -79,7 +79,7 @@ class SummaryView(ViewSet):
                 "id": "FRS",
                 "label": "Financial Readiness Score",
                 "value": financialReadinessScore,
-                "color": "hsl(270, 79%, 82%)"
+                "color": "hsl(256, 53%, 89%)"
             },
             {
                 "id": "Remainder",
