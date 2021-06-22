@@ -1,16 +1,17 @@
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 
+
 class SummaryView(ViewSet):
 
     def list(self, request):
-        """Handle GET requests to answers resource 
+        """Handle GET requests to answers resource
         Returns:
             Response -- JSON serialized list of answers
         """
         user = request.auth.user
 
-        ### Budget & Protection
+        # Budget & Protection
         # Subtract Users totalAssets from totalLiabilities
         liabilities = user.answers_set.filter(question__id__in=[7, 8])
         totalLiabilities = liabilities[1].input_answer - \
@@ -31,7 +32,7 @@ class SummaryView(ViewSet):
         ratioOfLivingExpenses = round(
             monthlyLivingExpenses[0].input_answer/monthlyIncome, 2)
 
-        ###Security & Legal
+        # Security & Legal
         # Insurance
         rentersInsurance = user.answers_set.get(question__id=12).option.text
         vehicleInsurance = user.answers_set.get(question__id=14).option.text
@@ -48,7 +49,8 @@ class SummaryView(ViewSet):
         # Retirement Savings
         retirementSavings = user.answers_set.get(question__id=25).input_answer
         # RetirementContributions
-        monthlyRetirementContributions = user.answers_set.get(question__id=24).input_answer
+        monthlyRetirementContributions = user.answers_set.get(
+            question__id=24).input_answer
 
         # Financial Readiness Score
         # Option Answer Scoring
@@ -66,6 +68,26 @@ class SummaryView(ViewSet):
         # Combined Score
         initialScore = inputScore + optionScore / 29
         financialReadinessScore = round(initialScore*4)
+
+        remainder = 100-financialReadinessScore
+
+        # Data Visualization
+        # My repsonsive pie chart
+
+        data = [
+            {
+                "id": "FRS",
+                "label": "Financial Readiness Score",
+                "value": financialReadinessScore,
+                "color": "hsl(270, 79%, 82%)"
+            },
+            {
+                "id": "Remainder",
+                "label": "Remainder",
+                "value": remainder,
+                "color": "hsl(90, 70%, 50%)"
+            }
+        ]
 
         # Build out an object to send back to the front with the data calculations provided
         analysis = {
@@ -95,7 +117,8 @@ class SummaryView(ViewSet):
                 "optionScore": optionScore,
                 "inputScore": inputScore,
                 "financialReadinessScore": financialReadinessScore
-            }
+            },
+            "data": data
         }
         # Send the object to the client
         return Response(analysis)
