@@ -24,321 +24,178 @@ class AnalyticsView(ViewSet):
         # Users monthly income
         income = user.answers_set.filter(question__id__in=[4])
         monthlyIncome = round(income[0].input_answer/12, 2)
+
+        # Monthly Bills
+        livingExpenses = user.answers_set.get(question__id=10).input_answer
+        monthlyDebts = user.answers_set.get(question__id=9).input_answer
+        totalMonthlyBills = livingExpenses + monthlyDebts
+
+        # Retirement Data
         retirementSavings = user.answers_set.get(question__id=25).input_answer
+        monthlyRetirementSavings = user.answers_set.get(question__id=24).input_answer
+        lifeExpectancy = user.answers_set.get(question__id=23).input_answer
+        retirementAge = user.answers_set.get(question__id=22).input_answer
+        yearsRetired = lifeExpectancy - retirementAge
+
+        retirementExpectation = yearsRetired * totalAnnualIncome
 
         # Data for bar chart
         retirementData = [
             {
                 "Financial Contributions": "Actual",
-                "traditional IRA": 4,
-                "traditional IRAColor": "hsl(233, 70%, 50%)",
-                "Roth IRA": 93,
-                "Roth IRAColor": "hsl(270, 70%, 50%)",
-                "Mutual Fund": 159,
-                "Mutual FundColor": "hsl(319, 70%, 50%)",
-                "401k": 134,
-                "401kColor": "hsl(172, 70%, 50%)",
-                "Stocks/Bonds": 137,
-                "Stocks/BondsColor": "hsl(160, 70%, 50%)",
-                "Other": 165,
-                "OtherColor": "hsl(105, 70%, 50%)"
+                "traditional IRA": 37000,
+                "traditional IRAColor": "hsl(204, 70%, 50%)",
+                "Roth IRA": 58000,
+                "Roth IRAColor": "hsl(227, 70%, 50%)",
+                "Mutual Fund": 114000,
+                "Mutual FundColor": "hsl(159, 70%, 50%)",
+                "401k": 89000,
+                "401kColor": "hsl(320, 70%, 50%)",
+                "Stocks/Bonds": 92000,
+                "Stocks/BondsColor": "hsl(165, 70%, 50%)",
+                "Other": 37000,
+                "OtherColor": "hsl(255, 70%, 50%)"
             },
             {
                 "Financial Contributions": "Goal",
-                "traditional IRA": 10,
-                "traditional IRAColor": "hsl(204, 70%, 50%)",
-                "Roth IRA": 58,
-                "Roth IRAColor": "hsl(227, 70%, 50%)",
-                "Mutual Fund": 114,
-                "Mutual FundColor": "hsl(159, 70%, 50%)",
-                "401k": 34,
-                "401kColor": "hsl(320, 70%, 50%)",
-                "Stocks/Bonds": 192,
-                "Stocks/BondsColor": "hsl(165, 70%, 50%)",
-                "Other": 37,
-                "OtherColor": "hsl(255, 70%, 50%)"
+                "traditional IRA": 100000,
+                "traditional IRAColor": "hsl(233, 70%, 50%)",
+                "Roth IRA": 100000,
+                "Roth IRAColor": "hsl(270, 70%, 50%)",
+                "Mutual Fund": 200000,
+                "Mutual FundColor": "hsl(319, 70%, 50%)",
+                "401k": 150000,
+                "401kColor": "hsl(172, 70%, 50%)",
+                "Stocks/Bonds": 200000,
+                "Stocks/BondsColor": "hsl(160, 70%, 50%)",
+                "Other": 250000,
+                "OtherColor": "hsl(105, 70%, 50%)"
             }
         ]
 
-    #     lineData = [
-    # {
-    #     "id": "japan",
-    #     "color": "hsl(314, 70%, 50%)",
-    #     "data": [
-    #     {
-    #         "x": "plane",
-    #         "y": 178
-    #     },
-    #     {
-    #         "x": "helicopter",
-    #         "y": 75
-    #     },
-    #     {
-    #         "x": "boat",
-    #         "y": 82
-    #     },
-    #     {
-    #         "x": "train",
-    #         "y": 282
-    #     },
-    #     {
-    #         "x": "subway",
-    #         "y": 213
-    #     },
-    #     {
-    #         "x": "bus",
-    #         "y": 142
-    #     },
-    #     {
-    #         "x": "car",
-    #         "y": 190
-    #     },
-    #     {
-    #         "x": "moto",
-    #         "y": 183
-    #     },
-    #     {
-    #         "x": "bicycle",
-    #         "y": 22
-    #     },
-    #     {
-    #         "x": "horse",
-    #         "y": 30
-    #     },
-    #     {
-    #         "x": "skateboard",
-    #         "y": 217
-    #     },
-    #     {
-    #         "x": "others",
-    #         "y": 164
-    #     }
-    #     ]
-    # },
-    # {
-    #     "id": "france",
-    #     "color": "hsl(61, 70%, 50%)",
-    #     "data": [
-    #     {
-    #         "x": "plane",
-    #         "y": 145
-    #     },
-    #     {
-    #         "x": "helicopter",
-    #         "y": 253
-    #     },
-    #     {
-    #         "x": "boat",
-    #         "y": 97
-    #     },
-    #     {
-    #         "x": "train",
-    #         "y": 88
-    #     },
-    #     {
-    #         "x": "subway",
-    #         "y": 211
-    #     },
-    #     {
-    #         "x": "bus",
-    #         "y": 212
-    #     },
-    #     {
-    #         "x": "car",
-    #         "y": 9
-    #     },
-    #     {
-    #         "x": "moto",
-    #         "y": 273
-    #     },
-    #     {
-    #         "x": "bicycle",
-    #         "y": 101
-    #     },
-    #     {
-    #         "x": "horse",
-    #         "y": 154
-    #     },
-    #     {
-    #         "x": "skateboard",
-    #         "y": 248
-    #     },
-    #     {
-    #         "x": "others",
-    #         "y": 58
-    #     }
-    #     ]
-    # },
-    # {
-    #     "id": "us",
-    #     "color": "hsl(282, 70%, 50%)",
-    #     "data": [
-    #     {
-    #         "x": "plane",
-    #         "y": 25
-    #     },
-    #     {
-    #         "x": "helicopter",
-    #         "y": 143
-    #     },
-    #     {
-    #         "x": "boat",
-    #         "y": 30
-    #     },
-    #     {
-    #         "x": "train",
-    #         "y": 282
-    #     },
-    #     {
-    #         "x": "subway",
-    #         "y": 89
-    #     },
-    #     {
-    #         "x": "bus",
-    #         "y": 17
-    #     },
-    #     {
-    #         "x": "car",
-    #         "y": 0
-    #     },
-    #     {
-    #         "x": "moto",
-    #         "y": 217
-    #     },
-    #     {
-    #         "x": "bicycle",
-    #         "y": 243
-    #     },
-    #     {
-    #         "x": "horse",
-    #         "y": 123
-    #     },
-    #     {
-    #         "x": "skateboard",
-    #         "y": 131
-    #     },
-    #     {
-    #         "x": "others",
-    #         "y": 100
-    #     }
-    #     ]
-    # },
-    # {
-    #     "id": "germany",
-    #     "color": "hsl(278, 70%, 50%)",
-    #     "data": [
-    #     {
-    #         "x": "plane",
-    #         "y": 287
-    #     },
-    #     {
-    #         "x": "helicopter",
-    #         "y": 176
-    #     },
-    #     {
-    #         "x": "boat",
-    #         "y": 73
-    #     },
-    #     {
-    #         "x": "train",
-    #         "y": 52
-    #     },
-    #     {
-    #         "x": "subway",
-    #         "y": 121
-    #     },
-    #     {
-    #         "x": "bus",
-    #         "y": 222
-    #     },
-    #     {
-    #         "x": "car",
-    #         "y": 237
-    #     },
-    #     {
-    #         "x": "moto",
-    #         "y": 1
-    #     },
-    #     {
-    #         "x": "bicycle",
-    #         "y": 61
-    #     },
-    #     {
-    #         "x": "horse",
-    #         "y": 269
-    #     },
-    #     {
-    #         "x": "skateboard",
-    #         "y": 15
-    #     },
-    #     {
-    #         "x": "others",
-    #         "y": 272
-    #     }
-    #     ]
-    # },
-    # {
-    #     "id": "norway",
-    #     "color": "hsl(50, 70%, 50%)",
-    #     "data": [
-    #     {
-    #         "x": "plane",
-    #         "y": 234
-    #     },
-    #     {
-    #         "x": "helicopter",
-    #         "y": 20
-    #     },
-    #     {
-    #         "x": "boat",
-    #         "y": 76
-    #     },
-    #     {
-    #         "x": "train",
-    #         "y": 188
-    #     },
-    #     {
-    #         "x": "subway",
-    #         "y": 86
-    #     },
-    #     {
-    #         "x": "bus",
-    #         "y": 200
-    #     },
-    #     {
-    #         "x": "car",
-    #         "y": 34
-    #     },
-    #     {
-    #         "x": "moto",
-    #         "y": 234
-    #     },
-    #     {
-    #         "x": "bicycle",
-    #         "y": 121
-    #     },
-    #     {
-    #         "x": "horse",
-    #         "y": 221
-    #     },
-    #     {
-    #         "x": "skateboard",
-    #         "y": 169
-    #     },
-    #     {
-    #         "x": "others",
-    #         "y": 41
-    #     }
-    #     ]
-    # }
-    # ]
+        lineData = [
+    {
+        "id": "Actual",
+        "color": "hsl(6, 70%, 50%)",
+        "data": [
+        {
+            "x": "January",
+            "y": 60
+        },
+        {
+            "x": "February",
+            "y": 266
+        },
+        {
+            "x": "March",
+            "y": 9
+        },
+        {
+            "x": "April",
+            "y": 212
+        },
+        {
+            "x": "May",
+            "y": 105
+        },
+        {
+            "x": "June",
+            "y": 21
+        },
+        {
+            "x": "July",
+            "y": 212
+        },
+        {
+            "x": "August",
+            "y": 212
+        },
+        {
+            "x": "September",
+            "y": 154
+        },
+        {
+            "x": "October",
+            "y": 128
+        },
+        {
+            "x": "November",
+            "y": 34
+        },
+        {
+            "x": "December",
+            "y": 156
+        }
+        ]
+    },
+    {
+        "id": "Goal",
+        "color": "hsl(340, 70%, 50%)",
+        "data": [
+        {
+            "x": "January",
+            "y": 250
+        },
+        {
+            "x": "February",
+            "y": 250
+        },
+        {
+            "x": "March",
+            "y": 250
+        },
+        {
+            "x": "April",
+            "y": 250
+        },
+        {
+            "x": "May",
+            "y": 250
+        },
+        {
+            "x": "June",
+            "y": 250
+        },
+        {
+            "x": "July",
+            "y": 250
+        },
+        {
+            "x": "August",
+            "y": 250
+        },
+        {
+            "x": "September",
+            "y": 250
+        },
+        {
+            "x": "October",
+            "y": 250
+        },
+        {
+            "x": "November",
+            "y": 250
+        },
+        {
+            "x": "December",
+            "y": 250
+        }
+        ]
+    }
+    ]
+
         # Build out an object to send back to the front with the data calculations provided
         analysis = {
-            "detailedAnalysisOne": {
-                "totalLiabilities": totalLiabilities,
+            "retirementAnalysis": {
+                "retirementExpectation": retirementExpectation,
                 "retirementSavings": retirementSavings
             },
-            "retirementData": retirementData
+            "incomeAnalysis": {
+                "monthlyIncome": monthlyIncome,
+                "totalMonthlyBills": totalMonthlyBills
+            },
+            "retirementData": retirementData,
+            "lineData": lineData
         }
         # Send the object to the client
         return Response(analysis)
