@@ -27,111 +27,36 @@ class AnalyticsView(ViewSet):
         retirementSavings = user.answers_set.get(question__id=25).input_answer
 
         # Data for bar chart
-        data = [
+        retirementData = [
             {
-                "country": "AD",
-                "hot dog": 4,
-                "hot dogColor": "hsl(233, 70%, 50%)",
-                "burger": 93,
-                "burgerColor": "hsl(270, 70%, 50%)",
-                "sandwich": 159,
-                "sandwichColor": "hsl(319, 70%, 50%)",
-                "kebab": 134,
-                "kebabColor": "hsl(172, 70%, 50%)",
-                "fries": 137,
-                "friesColor": "hsl(160, 70%, 50%)",
-                "donut": 165,
-                "donutColor": "hsl(105, 70%, 50%)"
+                "Financial Contributions": "Actual",
+                "traditional IRA": 4,
+                "traditional IRAColor": "hsl(233, 70%, 50%)",
+                "Roth IRA": 93,
+                "Roth IRAColor": "hsl(270, 70%, 50%)",
+                "Mutual Fund": 159,
+                "Mutual FundColor": "hsl(319, 70%, 50%)",
+                "401k": 134,
+                "401kColor": "hsl(172, 70%, 50%)",
+                "Stocks/Bonds": 137,
+                "Stocks/BondsColor": "hsl(160, 70%, 50%)",
+                "Other": 165,
+                "OtherColor": "hsl(105, 70%, 50%)"
             },
             {
-                "country": "AE",
-                "hot dog": 10,
-                "hot dogColor": "hsl(204, 70%, 50%)",
-                "burger": 58,
-                "burgerColor": "hsl(227, 70%, 50%)",
-                "sandwich": 114,
-                "sandwichColor": "hsl(159, 70%, 50%)",
-                "kebab": 34,
-                "kebabColor": "hsl(320, 70%, 50%)",
-                "fries": 192,
-                "friesColor": "hsl(165, 70%, 50%)",
-                "donut": 37,
-                "donutColor": "hsl(255, 70%, 50%)"
-            },
-            {
-                "country": "AF",
-                "hot dog": 36,
-                "hot dogColor": "hsl(64, 70%, 50%)",
-                "burger": 62,
-                "burgerColor": "hsl(90, 70%, 50%)",
-                "sandwich": 49,
-                "sandwichColor": "hsl(25, 70%, 50%)",
-                "kebab": 131,
-                "kebabColor": "hsl(74, 70%, 50%)",
-                "fries": 73,
-                "friesColor": "hsl(28, 70%, 50%)",
-                "donut": 142,
-                "donutColor": "hsl(183, 70%, 50%)"
-            },
-            {
-                "country": "AG",
-                "hot dog": 37,
-                "hot dogColor": "hsl(9, 70%, 50%)",
-                "burger": 79,
-                "burgerColor": "hsl(199, 70%, 50%)",
-                "sandwich": 57,
-                "sandwichColor": "hsl(64, 70%, 50%)",
-                "kebab": 38,
-                "kebabColor": "hsl(68, 70%, 50%)",
-                "fries": 22,
-                "friesColor": "hsl(43, 70%, 50%)",
-                "donut": 118,
-                "donutColor": "hsl(197, 70%, 50%)"
-            },
-            {
-                "country": "AI",
-                "hot dog": 200,
-                "hot dogColor": "hsl(218, 70%, 50%)",
-                "burger": 92,
-                "burgerColor": "hsl(246, 70%, 50%)",
-                "sandwich": 116,
-                "sandwichColor": "hsl(175, 70%, 50%)",
-                "kebab": 11,
-                "kebabColor": "hsl(154, 70%, 50%)",
-                "fries": 187,
-                "friesColor": "hsl(146, 70%, 50%)",
-                "donut": 8,
-                "donutColor": "hsl(141, 70%, 50%)"
-            },
-            {
-                "country": "AL",
-                "hot dog": 188,
-                "hot dogColor": "hsl(259, 70%, 50%)",
-                "burger": 81,
-                "burgerColor": "hsl(3, 70%, 50%)",
-                "sandwich": 52,
-                "sandwichColor": "hsl(280, 70%, 50%)",
-                "kebab": 92,
-                "kebabColor": "hsl(303, 70%, 50%)",
-                "fries": 188,
-                "friesColor": "hsl(13, 70%, 50%)",
-                "donut": 2,
-                "donutColor": "hsl(171, 70%, 50%)"
-            },
-            {
-                "country": "AM",
-                "hot dog": 160,
-                "hot dogColor": "hsl(21, 70%, 50%)",
-                "burger": 128,
-                "burgerColor": "hsl(86, 70%, 50%)",
-                "sandwich": 88,
-                "sandwichColor": "hsl(97, 70%, 50%)",
-                "kebab": 14,
-                "kebabColor": "hsl(330, 70%, 50%)",
-                "fries": 154,
-                "friesColor": "hsl(48, 70%, 50%)",
-                "donut": 168,
-                "donutColor": "hsl(129, 70%, 50%)"
+                "Financial Contributions": "Goal",
+                "traditional IRA": 10,
+                "traditional IRAColor": "hsl(204, 70%, 50%)",
+                "Roth IRA": 58,
+                "Roth IRAColor": "hsl(227, 70%, 50%)",
+                "Mutual Fund": 114,
+                "Mutual FundColor": "hsl(159, 70%, 50%)",
+                "401k": 34,
+                "401kColor": "hsl(320, 70%, 50%)",
+                "Stocks/Bonds": 192,
+                "Stocks/BondsColor": "hsl(165, 70%, 50%)",
+                "Other": 37,
+                "OtherColor": "hsl(255, 70%, 50%)"
             }
         ]
 
@@ -413,7 +338,7 @@ class AnalyticsView(ViewSet):
                 "totalLiabilities": totalLiabilities,
                 "retirementSavings": retirementSavings
             },
-            "data": data
+            "retirementData": retirementData
         }
         # Send the object to the client
         return Response(analysis)
