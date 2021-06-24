@@ -19,11 +19,13 @@ from django.conf.urls import include
 from django.urls import path
 from frssapi.views.auth import register_user, login_user
 
+from frssapi.views.analytics import AnalyticsView
 from frssapi.views import AnswerView, QuestionView, SummaryView
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'answers', AnswerView, 'answer')
 router.register(r'questions', QuestionView, 'question')
 router.register(r'summary', SummaryView, 'summary')
+router.register(r'analytics', AnalyticsView, 'analytics')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
